@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+:root {
+  font-size: 62.5%;
+
+  /* Primary */
+  --lime-green: hsl(163, 72%, 41%);
+  --bright-red: hsl(356, 69%, 56%);
+
+  --facebook: hsl(208, 92%, 53%);
+  --twitter: hsl(203, 89%, 53%);
+  --instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+  --youtube: hsl(348, 97%, 39%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+  font-family: Inter;
+
+  box-sizing: border-box;
+
+  outline: 0;
+}
+
+html, body {
+  height: 100%;
+
+  font-size: 1.6rem;
+}
+
+body.light {
+  --toggle-button: hsl(230, 22%, 74%);
+  --background: hsl(0, 0%, 100%);
+  --top-background: hsl(225, 100%, 98%);
+  --card-background: hsl(227, 47%, 96%);
+  --text-secondary: hsl(228, 12%, 44%);
+  --text-prymary: hsl(230, 17%, 14%);
+
+  background-color: var(--background);
+}
+
+body.dark {
+  --toggle-button: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+  --background: hsl(230, 17%, 14%);
+  --top-background: hsl(232, 19%, 15%);
+  --card-background: hsl(228, 28%, 20%);
+  --text-secondary: hsl(228, 34%, 66%);
+  --text-prymary: hsl(0, 0%, 100%);
+
+  background-color: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-prymary);
+}
+
+p, span, small {
+  color: var(--text-secondary)
+}
+
+#dashboard {
+  width: 100%;
+  height: 100%;
+
+  background-color: var(--background);
+}
+
+#dashboard::before {
+  content: '';
+
+  width: 100%;
+  height: 30%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: var(--top-background);
+  
+  z-index: 2;
+}
+
+.container {
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+
+  width: inherit;
+  max-width: 108rem;
+
+
+  padding: 0 3%;
+
+  z-index: 999;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 10rem;
+}
+
+header .line {
+  width: 100%;
+  height: 0.1rem;
+
+  background-color: var(--text-secondary);
+  display: none;
+}
+
+header .toggle {
+  display: flex;
+}
+
+header .toggle .interrupter {
+  display: flex;
+
+  width: 7rem;
+  height: 2rem;
+
+  margin-left: 1rem;
+  border-radius: 1rem;
+
+  background: var(--toggle-button);
+
+  cursor: pointer;
+}
+
+header .toggle .interrupter button {
+  width: 1.8rem;
+  height: 1.8rem;
+
+  position: relative;
+  transform: translateX(-50%);
+  left: 0;
+
+  margin-left: 1rem;
+  margin-top: 0.1rem;
+  border-radius: 1rem;
+  border: 0;
+
+  background: var(--background);
+
+  cursor: pointer;
+}
+
+header .toggle .interrupter button.light {
+  animation: slideLeft 400ms ease both;
+}
+
+@keyframes slideLeft {
+  from {
+    left: 71%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+header .toggle .interrupter button.dark {
+  animation: slideRight 400ms ease both;
+}
+
+@keyframes slideRight {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: 71%;
+  }
+}
+
+main {
+  margin: 6rem 0;
+}
+
+main .big-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.big-cards .big-single-card {
+  text-align: center;
+
+  padding-bottom: 2rem;
+
+  border-radius: 0.4rem;
+
+  background-color: var(--card-background);
+}
+
+.big-cards .big-single-card.facebook {
+  border-top: 0.4rem solid var(--facebook);
+}
+
+.big-cards .big-single-card.twitter {
+  border-top: 0.4rem solid var(--twitter);
+}
+
+.big-cards .big-single-card.instagram .border{
+  width: 100%;
+  height: 0.4rem;
+
+  border-radius: 0.4rem 0.4rem 0 0;
+
+  background: var(--instagram);
+}
+
+.big-cards .big-single-card.youtube {
+  border-top: 0.4rem solid var(--youtube);
+}
+
+.big-cards .big-single-card .profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem 0;
+
+  font-size: 1.4rem;
+}
+
+.big-cards .big-single-card .profile img {
+  width: 2rem;
+
+  margin-right: 1rem;
+}
+
+.big-cards .big-single-card > p {
+  margin-bottom: 2rem;
+
+  letter-spacing: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.big-cards .big-single-card .diff {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 2rem;
+
+  font-weight: 700;
+}
+
+.big-cards .big-single-card .diff small {
+  margin-left: 0.5rem;
+}
+
+small.success {
+  color: var(--lime-green);
+}
+
+small.danger {
+  color: var(--bright-red);
+}
+
+.big-cards .big-single-card .diff img {
+  width: 1rem;
+}
+
+main > h2 {
+  margin: 3rem 0;
+}
+
+.small-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.small-cards .small-single-card {
+  display: flex;
+  flex-direction: column;
+
+  padding: 1rem;
+  border-radius: 0.8rem;
+
+  background-color: var(--card-background);
+}
+
+.small-cards .small-single-card .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+}
+
+.small-cards .small-single-card .info img {
+  width: 2rem;
+}
+
+.small-cards .small-single-card .stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1rem;
+}
+
+.small-cards .small-single-card .stats  > div {
+  display: flex;
+  align-items: center;
+}
+
+.small-cards .small-single-card .stats  > div img {
+  width: 1rem;
+
+  margin-right: 0.5rem;
+}
+
+.small-cards .small-single-card .stats  > div small {
+  font-weight: 700;
+}
+
+@media (max-width: 900px) {
+  main .big-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  main .small-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  main .small-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  header h2 {
+    margin-top: 2rem;
+  }
+
+  header .line {
+    display: block;
+
+  }
+
+  header .toggle {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+  }
+
+  main .big-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 344px) {
+  :root {
+    font-size: 50%;
+  }
+
+  main .small-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 250px) {
+  :root {
+    font-size: 40%;
+  }
+}
+@media (max-width: 200px) {
+  :root {
+    font-size: 30%;
+  }
+}
+
+@media (max-width: 160px) {
+  :root {
+    font-size: 20%;
+  }
+}
+
+@media (max-width: 100px) {
+  :root {
+    font-size: 10%;
+  }
+}
